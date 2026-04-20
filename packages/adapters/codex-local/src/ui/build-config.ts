@@ -71,6 +71,7 @@ export function buildCodexLocalConfig(v: CreateConfigValues): Record<string, unk
   if (v.cwd) ac.cwd = v.cwd;
   if (v.instructionsFilePath) ac.instructionsFilePath = v.instructionsFilePath;
   if (v.promptTemplate) ac.promptTemplate = v.promptTemplate;
+  if (v.bootstrapPrompt) ac.bootstrapPromptTemplate = v.bootstrapPrompt;
   ac.model = v.model || DEFAULT_CODEX_LOCAL_MODEL;
   if (v.thinkingEffort) ac.modelReasoningEffort = v.thinkingEffort;
   ac.timeoutSec = 0;
@@ -84,6 +85,7 @@ export function buildCodexLocalConfig(v: CreateConfigValues): Record<string, unk
   }
   if (Object.keys(env).length > 0) ac.env = env;
   ac.search = v.search;
+  ac.fastMode = v.fastMode;
   ac.dangerouslyBypassApprovalsAndSandbox =
     typeof v.dangerouslyBypassSandbox === "boolean"
       ? v.dangerouslyBypassSandbox
